@@ -1,0 +1,12 @@
+{% extends 'basehome.html' %}
+{% block content %}
+    <div class="container">
+        <form method="post" action="{% url 'addnote' %}">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+           <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">保存笔记并且预览</button>
+        </form>
+    </div>
+{% endblock %}

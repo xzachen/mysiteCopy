@@ -1,0 +1,15 @@
+{% extends 'basehome.html' %}
+{#使用列表的形式显示自己的笔记#}
+{% block content %}
+    <div class="list-group">
+        {% for note in notes %}
+            {# 跳转到具体的页面#}
+            <a href="notedetailed/{{ note.nid }}" class="list-group-item">
+                <h4 class="list-group-item-heading">{{ note.title }}</h4>
+                <span class="text text-success">创建时间：{{ note.date|date:"Y-m-d H:i:s" }} </span>
+                <p class="text text-info">作者： {{ note.auther.username }}</p>
+                <p class="list-group-item-text">{{ note.meta_description }}</p>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

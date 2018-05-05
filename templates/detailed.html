@@ -1,0 +1,22 @@
+{% extends 'basehome.html' %}
+{#文章的详情页面，可以进行修改和删除以及设置是否分享等操作#}
+{% block content %}
+    <div class="container">
+        <div class="blog-header">
+            <h3 class="blog-title">{{ note.title }}</h3>
+            <h5 class="blog-title"><a href="#">笔记分类：{{ note.category }}</a></h5>
+
+        </div>
+        <div class="blog-post">
+            <p class="blog-post-meta text-info">创建时间：{{ note.date|date:"Y-m-d H:i:s" }} </p>
+            <span class="text-info">创建作者： {{ note.auther.username }}</span>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ note.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

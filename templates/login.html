@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{#文章创建的页面#}
+{% block content %}
+    <div class="container">
+        <form class="form-signin" method="post" action="{% url 'login' %}">
+            <h4 class="form-signin-heading">笔记登录界面</h4>
+            {% csrf_token %}
+            {% for filed in  login_form %}
+                <label for="{{ filed.id_for_lable }}">{{ filed.label }}</label>
+                {{ filed }}
+                <p class="text-danger">{{ filed.errors.as_text }}</p>
+            {% endfor %}
+            <span class="text-danger pull-left">{{ login_form.non_field_errors }}</span>
+            <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
+        </form>
+    </div>
+{% endblock %}
+
+
